@@ -124,25 +124,32 @@ public class Lesson4 {
         int counterOposDiag = 0;
         int counterRow = 0;
         int counterColumn = 0;
-            for (int x = 0; x < SIZE; x++) {
-                if (map[x][x] == symb) { // Проверка левой диагонали
+
+            for (int i = 0; i < SIZE; i++) {
+                counterRow = 0;
+                if (map[i][i] == symb) { // Проверка левой диагонали
                     counterDiag++;
+                    System.out.println("Диагональ левая " + counterDiag);
                 }
 
-                int lastY = ((SIZE - 1) - x); // В цикле вычисляю последний элемент J со сдвигом на предыдущий.
-                if (map[x][lastY] == symb) { // Проверка правой диагонали
+                int lastY = ((SIZE - 1) - i); // В цикле вычисляю последний элемент Y со сдвигом на предыдущий.
+                if (map[i][lastY] == symb) { // Проверка правой диагонали
                     counterOposDiag++;
+                    System.out.println("Диагональ Правая " + counterOposDiag);
                 }
 
-                for (int y = 0; y < SIZE; y++) {
-                    if (map[x][y] == symb && map[x][0] == map[x][y]) {
+                for (int j = 0; j < SIZE; j++) {
+                    if (map[i][j] == symb && map[i][j] == map[i][0]) { // Вычисляем строки
                         counterRow++;
-                        System.out.println(counterRow);
-                            }
+                        System.out.println("Строка " + counterRow);
+                    }
+                    if (map[j][i] == symb && map[j][i] == map[0][i]) {
+                        counterColumn++;
+                        System.out.println("Столбец " + counterColumn);
+                    }
                 }
-
             }
-        if (counterDiag == SIZE || counterOposDiag == SIZE || counterRow == SIZE) {
+        if (counterDiag == SIZE || counterOposDiag == SIZE || counterRow == SIZE || counterColumn == SIZE) {
             return true;
         }
         return false;
