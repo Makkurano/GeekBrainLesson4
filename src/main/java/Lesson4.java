@@ -11,6 +11,7 @@ public class Lesson4 {
     private static char[][] map;
     private static final int SIZE = 5;
     private static final char DOT_EMPTY = '•';
+    private static final int DOTS_TO_WIN = 4;
     private static final char DOT_X = 'X';
     private static final char DOT_O = 'O';
 
@@ -165,8 +166,8 @@ public class Lesson4 {
                         }
                     }
                     // Проверка победы
-                    if (counterDiag == SIZE || counterOposDiag == SIZE || counterRow == SIZE
-                            || counterColumn == SIZE) {
+                    if (counterDiag == DOTS_TO_WIN || counterOposDiag == DOTS_TO_WIN || counterRow == DOTS_TO_WIN
+                            || counterColumn == DOTS_TO_WIN) {
                         return true;
                     }
             }
