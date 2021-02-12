@@ -80,8 +80,8 @@ public class Lesson4 {
         Random rand = new Random();
         int x, y;
         do {
-            x = rand.nextInt(SIZE); // Берем рандомное число до 2
-            y = rand.nextInt(SIZE); // Берем рандомное число до 2
+            x = rand.nextInt(SIZE); // Берем рандомное число до размера поля
+            y = rand.nextInt(SIZE); // Берем рандомное число до размера поля
         } while (!isCellValid(x, y)); // Проверка на границы
         System.out.println("Компьютер походил в точку " + (x + 1) + " " + (y + 1));
         map[y][x] = DOT_O; // Если ячейка свободна, пишем 0 в указанной пользователем координате
